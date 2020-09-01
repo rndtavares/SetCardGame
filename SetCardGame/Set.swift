@@ -128,6 +128,18 @@ struct Set{
             }
         }
     }
+    
+    init(){
+        startGame()
+    }
+    
+    mutating func draw() -> Card? {
+        if cards.count > 0 {
+            return cards.remove(at: cards.count.arc4random)
+        } else {
+            return nil
+        }
+    }
 }
 
 extension Int {

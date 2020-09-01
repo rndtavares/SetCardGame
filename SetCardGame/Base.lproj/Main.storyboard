@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ocu-C9-xmB">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -322,6 +322,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
+        </scene>
+        <!--Set Card View Controller-->
+        <scene sceneID="KYP-yH-0wY">
+            <objects>
+                <viewController id="ocu-C9-xmB" customClass="SetCardViewController" customModule="SetCardGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j7t-bv-F7D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhK-dp-Dt7">
+                                <rect key="frame" x="174.33333333333334" y="784" width="65.666666666666657" height="28.666666666666629"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9GL-JG-k4K">
+                                <rect key="frame" x="32.333333333333343" y="821" width="349.33333333333326" height="41"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phv-hT-Fad">
+                                        <rect key="frame" x="0.0" y="0.0" width="219.33333333333334" height="41"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="Deal 3 More Cards"/>
+                                        <connections>
+                                            <action selector="deal3MoreCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pAd-VG-Qto"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-Eo-xbh">
+                                        <rect key="frame" x="227.33333333333337" y="0.0" width="122" height="41"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="New Game"/>
+                                        <connections>
+                                            <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gqz-mg-SvN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dro-F4-tBH" customClass="SetCardView" customModule="SetCardGame" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="382" height="716"/>
+                                <color key="backgroundColor" red="1" green="0.19051481109999999" blue="0.1111096821" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9GL-JG-k4K" firstAttribute="centerX" secondItem="Aqc-g4-lo3" secondAttribute="centerX" id="0qJ-g2-kv7"/>
+                            <constraint firstItem="fhK-dp-Dt7" firstAttribute="centerX" secondItem="Aqc-g4-lo3" secondAttribute="centerX" id="Ay9-sm-hRK"/>
+                            <constraint firstItem="dro-F4-tBH" firstAttribute="top" secondItem="Aqc-g4-lo3" secondAttribute="top" constant="16" id="Q8i-Nj-CGZ"/>
+                            <constraint firstItem="Aqc-g4-lo3" firstAttribute="bottom" secondItem="9GL-JG-k4K" secondAttribute="bottom" id="ZNb-ip-CtZ"/>
+                            <constraint firstItem="dro-F4-tBH" firstAttribute="leading" secondItem="Aqc-g4-lo3" secondAttribute="leading" constant="16" id="h8c-rR-kQX"/>
+                            <constraint firstItem="9GL-JG-k4K" firstAttribute="top" secondItem="fhK-dp-Dt7" secondAttribute="bottom" constant="8.3333333333333712" id="iPe-lB-Dlx"/>
+                            <constraint firstItem="fhK-dp-Dt7" firstAttribute="top" secondItem="dro-F4-tBH" secondAttribute="bottom" constant="8" id="qpN-9D-Pt6"/>
+                            <constraint firstItem="dro-F4-tBH" firstAttribute="centerX" secondItem="Aqc-g4-lo3" secondAttribute="centerX" id="tmo-Ws-4Vg"/>
+                            <constraint firstItem="Aqc-g4-lo3" firstAttribute="trailing" secondItem="dro-F4-tBH" secondAttribute="trailing" constant="16" id="xZ1-uh-xzA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Aqc-g4-lo3"/>
+                    </view>
+                    <connections>
+                        <outlet property="setCardView" destination="dro-F4-tBH" id="mff-3p-VCc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2KL-0M-aML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="139"/>
         </scene>
     </scenes>
 </document>
