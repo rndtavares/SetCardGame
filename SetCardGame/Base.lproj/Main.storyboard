@@ -361,7 +361,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dro-F4-tBH" customClass="SetCardView" customModule="SetCardGame" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dro-F4-tBH" customClass="SetBoardView" customModule="SetCardGame" customModuleProvider="target">
                                 <rect key="frame" x="16" y="60" width="382" height="716"/>
                                 <color key="backgroundColor" red="1" green="0.19051481109999999" blue="0.1111096821" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -381,7 +381,7 @@
                         <viewLayoutGuide key="safeArea" id="Aqc-g4-lo3"/>
                     </view>
                     <connections>
-                        <outlet property="setCardView" destination="dro-F4-tBH" id="mff-3p-VCc"/>
+                        <outlet property="setBoardView" destination="dro-F4-tBH" id="pph-A5-fdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KL-0M-aML" userLabel="First Responder" sceneMemberID="firstResponder"/>

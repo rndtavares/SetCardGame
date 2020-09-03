@@ -9,8 +9,8 @@
 import UIKit
 
 class SetCardViewController: UIViewController {
-
-    @IBOutlet weak var setCardView: SetCardView!
+    
+    @IBOutlet weak var setBoardView: SetBoardView!
     
     private var setGame = Set()
     
@@ -18,8 +18,9 @@ class SetCardViewController: UIViewController {
         super.viewDidLoad()
         for _ in 1...12 {
             if let card = setGame.draw() {
-                setCardView.gameCards.append(card)
-                print("\(card)")
+                let cardView = SetCardView()
+                cardView.card = card
+                setBoardView.cardViews.append(cardView)
             }
         }
     }
