@@ -19,7 +19,6 @@ class SetCardViewController: UIViewController {
         for _ in 1...12 {
             if let card = setGame.draw() {
                 let cardView = SetCardView()
-                cardView.card = card
                 setBoardView.cardViews.append(cardView)
             }
         }
