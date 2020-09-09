@@ -17,6 +17,8 @@ class SetCardView: UIView {
     @IBInspectable
     var isFaceUp: Bool = true { didSet {setNeedsDisplay(); setNeedsLayout() }}
     
+    @IBInspectable
+    var isSelected: Bool = false { didSet { setNeedsDisplay(); setNeedsLayout()}}
     var isMatched: Bool? { didSet { setNeedsDisplay(); setNeedsLayout()}}
     
     private enum Symbol: Int {
@@ -215,19 +217,122 @@ class SetCardView: UIView {
     
     private func pathForSquiggle(in rect: CGRect) -> UIBezierPath {
         let upperSquiggle = UIBezierPath()
+        let squiggleDx = rect.width * 0.1
+        let squiggleDy = rect.height * 0.2
+        upperSquiggle.move(to: CGPoint(x: rect.minX, y: rect.midY))
+        upperSquiggle.addCurve(to: CGPoint(x: rect.minX + rect.width * 1/2,
+                                           y: rect.minY + rect.height / 8),
+                               controlPoint1: CGPoint(x: rect.minX, y: rect.minY),
+                               controlPoint2: CGPoint(x: rect.minX + rect.width * 1/2 - squiggleDx,
+                                                      y: rect.minY + rect.height / 8 - squiggleDy))
+        upperSquiggle.addCurve(to: CGPoint(x: rect.minX + rect.width * 4/5,
+                                           y: rect.minY + rect.height / 8),
+                               controlPoint1: CGPoint(x: rect.minX + rect.width * 1/2 + squiggleDx,
+                                                      y: rect.minY + rect.height / 8 + squiggleDy),
+                               controlPoint2: CGPoint(x: rect.minX + rect.width * 4/5 - squiggleDx,
+                                                      y: rect.minY + rect.height / 8 + squiggleDy))
+        upperSquiggle.addCurve(to: CGPoint(x: rect.minX + rect.width, y: rect.minY + rect.height / 2),
+                               controlPoint1: CGPoint(x: rect.minX + rect.width * 4/5 + squiggleDx,
+                                                      y: rect.minY + rect.height / 8 - squiggleDy),
+                               controlPoint2: CGPoint(x: rect.minX + rect.width, y: rect.minY))
+        
+        let lowerSquiggle = UIBezierPath(cgPath: upperSquiggle.cgPath)
+        lowerSquiggle.apply(CGAffineTransform.identity.rotated(by: CGFloat.pi))
+        lowerSquiggle.apply(CGAffineTransform.identity.translatedBy(x: bounds.width, y: bounds.height))
+        upperSquiggle.move(to: CGPoint(x: rect.minX, y: rect.midY))
+        upperSquiggle.append(lowerSquiggle)
         return upperSquiggle
     }
     
     private func pathForOval(in rect: CGRect) -> UIBezierPath {
         let oval = UIBezierPath()
+        let radius = rect.height / 2
+        oval.addArc(withCenter: CGPoint(x: rect.minX + radius, y: rect.minY + radius), radius: radius, startAngle: CGFloat.pi/2, endAngle: CGFloat.pi*3/2, clockwise: true)
+        oval.addLine(to: CGPoint(x: rect.maxX - radius, y: rect.minY))
+        oval.addArc(withCenter: CGPoint(x: rect.maxX - radius, y: rect.maxY - radius), radius: radius, startAngle: CGFloat.pi*3/2, endAngle: CGFloat.pi/2, clockwise: true)
         return oval
     }
     
     private func pathForDiamond(in rect: CGRect) -> UIBezierPath {
         let diamond = UIBezierPath()
+        diamond.move(to: CGPoint(x: rect.minX, y: rect.midY))
+        diamond.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+        diamond.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
+        diamond.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+        diamond.close()
         return diamond
     }
-
+    
+    private let borderWidth: CGFloat = 5.0
+    
+    private func configureState() {
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        isOpaque = false
+        contentMode = .redraw
+        
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = borderWidth
+        layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor
+        if isSelected {
+            pinLabel.isHidden = false
+            layer.borderColor = Colors.selected
+        } else {
+            pinLabel.isHidden = true
+        }
+        if let matched = isMatched {
+            pinLabel.isHidden = false
+            if matched {
+                layer.borderColor = Colors.matched
+            } else {
+                layer.borderColor = Colors.misMatched
+            }
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configurePinLabel(pinLabel)
+        let pinOffSet = SizeRatio.pinOffset
+        pinLabel.frame.origin = bounds.origin.offsetBY(dx: bounds.size.width * pinOffSet,
+                                                       dy: bounds.size.height * pinOffSet)
+        configureState()
+    }
+    
+    func hint() {
+        layer.borderWidth = borderWidth
+        layer.borderColor = Colors.hint
+    }
+    
+    private func centeredAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString {
+        var font = UIFont.preferredFont(forTextStyle: .body).withSize(fontSize)
+        font = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        return NSAttributedString(string: string, attributes: [.paragraphStyle:paragraphStyle,.font:font])
+    }
+    
+    private var pinFontSize: CGFloat {
+        return bounds.size.height * SizeRatio.pinFontSizeToBoundsHeight
+    }
+    
+    private var pinString: NSAttributedString {
+        return centeredAttributedString("📌", fontSize: pinFontSize)
+    }
+    
+    private func createPinLabel() -> UILabel {
+        let label = UILabel()
+        addSubview(label)
+        return label
+    }
+    
+    private lazy var pinLabel = createPinLabel()
+    
+    private func configurePinLabel(_ label: UILabel) {
+        label.attributedText = pinString
+        label.frame.size = CGSize.zero
+        label.sizeToFit()
+        label.isHidden = true
+    }
 }
 
 extension CGRect {
@@ -235,5 +340,11 @@ extension CGRect {
         let newWidth = width * scale
         let newHeight = height * scale
         return insetBy(dx: (width - newWidth) / 2, dy: (height - newHeight) / 2)
+    }
+}
+
+extension CGPoint {
+    func offsetBY(dx: CGFloat, dy: CGFloat) -> CGPoint {
+        return CGPoint(x: x+dx, y: y+dy)
     }
 }
