@@ -10,10 +10,42 @@ import Foundation
 
 struct Set{
     private(set) var cards = [Card]()
+    var deckCount: Int {return cards.count}
+    
     private(set) var score = 0
+    private(set) var flipCount = 0
+    private(set) var numberSets = 0
+    
+    private(set) var cardsOnTable = [Card]()
+    private(set) var cardsSelected = [Card]()
+    private(set) var cardsTryMatched = [Card]()
+    private(set) var cardsRemoved = [Card]()
+    
     var qtdCardsGame = 12
     private var selectedCards = [Int]()
     private(set) var hasMatch = false
+    
+    var isSet: Bool? {
+        get {
+            guard cardsTryMatched.count == 3 else {return nil}
+            return true
+            // return Card.isSet(cards: cardsTryMatched)
+        }
+        set {
+            if newValue != nil {
+                if newValue! {
+//                    score += Points.matchBonus
+                    numberSets += 1
+                } else {
+//                    score -= Points.missMatchPenalty
+                }
+                cardsTryMatched = cardsSelected
+                cardsSelected.removeAll()
+            } else {
+                cardsTryMatched.removeAll()
+            }
+        }
+    }
     
     mutating func startGame(){
         cards.removeAll()
@@ -21,7 +53,11 @@ struct Set{
         qtdCardsGame = 12
         selectedCards.removeAll()
         hasMatch = false
-        
+        setDeck()
+        shuffleCards()
+    }
+    
+    mutating private func setDeck(){
         for shape in Shape.all{
             for color in Color.all{
                 for shading in Shading.all{
@@ -32,10 +68,9 @@ struct Set{
                 }
             }
         }
-        shuffleCards()
     }
     
-    private mutating func shuffleCards(){
+    mutating func shuffleCards(){
         var shuflledCards = [Card]()
         while cards.count > 1 {
             shuflledCards.append(cards.remove(at: cards.count.arc4random))
