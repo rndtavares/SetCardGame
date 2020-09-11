@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         case none
     }
     
-    private var setGame = Set()
+    private var setGame = SetCardGame()
 
     @IBOutlet var cardButtons: [UIButton]!
     

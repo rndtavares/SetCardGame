@@ -10,7 +10,7 @@ import UIKit
 
 class SetCardViewController: UIViewController {
     
-    private var game = Set()
+    private var game = SetGame()
     
     @IBOutlet weak var setBoardView: SetBoardView!{
         didSet {
@@ -54,7 +54,7 @@ class SetCardViewController: UIViewController {
     func reshuffle(_ sender: UIRotationGestureRecognizer) {
         switch sender.state {
         case .ended:
-            game.shuffleCards()
+            game.shuffle()
             updateViewFromModel()
         default:
             break
