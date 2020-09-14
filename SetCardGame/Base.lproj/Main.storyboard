@@ -331,25 +331,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="10f-Xl-P9G">
-                                <rect key="frame" x="16" y="784.33333333333337" width="382" height="28.666666666666629"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="10f-Xl-P9G">
+                                <rect key="frame" x="16" y="786.33333333333337" width="382" height="28.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Deck" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhK-dp-Dt7">
-                                        <rect key="frame" x="0.0" y="0.0" width="122" height="28.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97.666666666666671" height="28.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfp-7o-glV">
-                                        <rect key="frame" x="130" y="0.0" width="122" height="28.666666666666668"/>
+                                        <rect key="frame" x="105.66666666666669" y="0.0" width="173" height="28.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAf-Q9-DBa">
-                                        <rect key="frame" x="260" y="0.0" width="122" height="28.666666666666668"/>
+                                        <rect key="frame" x="286.66666666666669" y="0.0" width="95.333333333333314" height="28.666666666666668"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -358,46 +358,72 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9GL-JG-k4K">
-                                <rect key="frame" x="58.333333333333343" y="821" width="297.33333333333326" height="41"/>
+                                <rect key="frame" x="61.666666666666657" y="823" width="290.66666666666674" height="39"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phv-hT-Fad">
-                                        <rect key="frame" x="0.0" y="0.0" width="54.333333333333336" height="41"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phv-hT-Fad" customClass="BorderButton" customModule="SetCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="57" height="39"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <state key="normal" title="Hint"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title=" Hint "/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        </variation>
                                         <connections>
-                                            <action selector="deal3MoreCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pAd-VG-Qto"/>
-                                            <action selector="hint:" destination="ocu-C9-xmB" eventType="touchUpInside" id="u5q-sG-9fD"/>
+                                            <action selector="hint" destination="ocu-C9-xmB" eventType="touchUpInside" id="W8u-W4-aBU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlK-Bx-B6a">
-                                        <rect key="frame" x="62.333333333333343" y="0.0" width="105" height="41"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlK-Bx-B6a" customClass="BorderButton" customModule="SetCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="65" y="0.0" width="102.66666666666669" height="39"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <state key="normal" title="Deal 3 +"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title=" Deal 3 + "/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        </variation>
                                         <connections>
-                                            <action selector="deal3:" destination="ocu-C9-xmB" eventType="touchUpInside" id="ROH-7r-uoW"/>
-                                            <action selector="deal3MoreCards:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PSx-dY-Sq0"/>
+                                            <action selector="deal3" destination="ocu-C9-xmB" eventType="touchUpInside" id="7zQ-wR-Fgv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-Eo-xbh">
-                                        <rect key="frame" x="175.33333333333331" y="0.0" width="122" height="41"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twg-Eo-xbh" customClass="BorderButton" customModule="SetCardGame" customModuleProvider="target">
+                                        <rect key="frame" x="175.66666666666669" y="0.0" width="115" height="39"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                        <state key="normal" title="New Game"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title=" New Game "/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        </variation>
                                         <connections>
+                                            <action selector="new" destination="ocu-C9-xmB" eventType="touchUpInside" id="1fp-jQ-kVw"/>
                                             <action selector="new:" destination="ocu-C9-xmB" eventType="touchUpInside" id="Bwg-mk-2KR"/>
-                                            <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gqz-mg-SvN"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dro-F4-tBH" customClass="SetBoardView" customModule="SetCardGame" customModuleProvider="target">
-                                <rect key="frame" x="16" y="60" width="382" height="716.33333333333337"/>
-                                <color key="backgroundColor" red="1" green="0.19051481109999999" blue="0.1111096821" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="60" width="382" height="718.33333333333337"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.19051481109999999" blue="0.1111096821" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9GL-JG-k4K" firstAttribute="centerX" secondItem="Aqc-g4-lo3" secondAttribute="centerX" id="0qJ-g2-kv7"/>
                             <constraint firstItem="dro-F4-tBH" firstAttribute="top" secondItem="Aqc-g4-lo3" secondAttribute="top" constant="16" id="Q8i-Nj-CGZ"/>
@@ -413,11 +439,10 @@
                         <viewLayoutGuide key="safeArea" id="Aqc-g4-lo3"/>
                     </view>
                     <connections>
-                        <outlet property="dealButton" destination="YlK-Bx-B6a" id="9uS-bk-KUF"/>
+                        <outlet property="dealButton" destination="YlK-Bx-B6a" id="Tjf-M5-VWn"/>
                         <outlet property="deckCountLabel" destination="fhK-dp-Dt7" id="15K-ZR-yZK"/>
-                        <outlet property="hintButton" destination="phv-hT-Fad" id="8xH-fD-n8T"/>
+                        <outlet property="hintButton" destination="phv-hT-Fad" id="Y1V-5R-xOP"/>
                         <outlet property="messageLabel" destination="pfp-7o-glV" id="Q6J-y9-9o6"/>
-                        <outlet property="newButton" destination="Twg-Eo-xbh" id="89A-AI-bmL"/>
                         <outlet property="scoreLabel" destination="NAf-Q9-DBa" id="PTi-or-yRx"/>
                         <outlet property="setBoardView" destination="dro-F4-tBH" id="pph-A5-fdt"/>
                     </connections>

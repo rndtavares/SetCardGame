@@ -250,6 +250,7 @@ class SetCardView: UIView {
         oval.addArc(withCenter: CGPoint(x: rect.minX + radius, y: rect.minY + radius), radius: radius, startAngle: CGFloat.pi/2, endAngle: CGFloat.pi*3/2, clockwise: true)
         oval.addLine(to: CGPoint(x: rect.maxX - radius, y: rect.minY))
         oval.addArc(withCenter: CGPoint(x: rect.maxX - radius, y: rect.maxY - radius), radius: radius, startAngle: CGFloat.pi*3/2, endAngle: CGFloat.pi/2, clockwise: true)
+        oval.close()
         return oval
     }
     

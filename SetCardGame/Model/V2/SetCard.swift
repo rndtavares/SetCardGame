@@ -14,7 +14,7 @@ struct SetCard: Equatable, CustomStringConvertible {
     let shape: Variant
     let fill: Variant
     
-    var description: String {return "\(number)-\(number)-\(number)-\(number)"}
+    var description: String {return "\(number)-\(color)-\(shape)-\(fill)"}
     
     enum Variant: Int, CaseIterable, CustomStringConvertible {
         case v1 = 1
@@ -36,3 +36,6 @@ struct SetCard: Equatable, CustomStringConvertible {
         return sum.reduce(true, { $0 && ($1 % 3 == 0)})
     }
 }
+//oval striped
+//diamond solid
+//til vazio
