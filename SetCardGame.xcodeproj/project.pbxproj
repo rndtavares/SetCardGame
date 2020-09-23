@@ -11,6 +11,7 @@
 		A54371AD24FE76EE006E5F2A /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54371AC24FE76EE006E5F2A /* SetCardView.swift */; };
 		A54371AF24FE7DE9006E5F2A /* SetCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */; };
 		A547293324C9C3D500D2FC23 /* SetCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A547293224C9C3D500D2FC23 /* SetCardGame.swift */; };
+		A5569153251B7E790097B39C /* DeckImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5569152251B7E790097B39C /* DeckImageView.swift */; };
 		A558BE87250BB190007B3405 /* SetCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558BE86250BB190007B3405 /* SetCard.swift */; };
 		A558BE89250BB1D4007B3405 /* SetCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558BE88250BB1D4007B3405 /* SetCardDeck.swift */; };
 		A558BE8B250BB21A007B3405 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A558BE8A250BB219007B3405 /* SetGame.swift */; };
@@ -48,6 +49,7 @@
 		A54371AC24FE76EE006E5F2A /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardViewController.swift; sourceTree = "<group>"; };
 		A547293224C9C3D500D2FC23 /* SetCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardGame.swift; sourceTree = "<group>"; };
+		A5569152251B7E790097B39C /* DeckImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckImageView.swift; sourceTree = "<group>"; };
 		A558BE86250BB190007B3405 /* SetCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCard.swift; sourceTree = "<group>"; };
 		A558BE88250BB1D4007B3405 /* SetCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardDeck.swift; sourceTree = "<group>"; };
 		A558BE8A250BB219007B3405 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				A54371AC24FE76EE006E5F2A /* SetCardView.swift */,
 				A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */,
 				A558BE90250BB440007B3405 /* BorderButton.swift */,
+				A5569152251B7E790097B39C /* DeckImageView.swift */,
 			);
 			path = V2;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				A562133D25011E3700D2319E /* SetBoardView.swift in Sources */,
 				A5394BF424F93E1100B256ED /* Grid.swift in Sources */,
 				A565D97B24BF37EF00E583FE /* AppDelegate.swift in Sources */,
+				A5569153251B7E790097B39C /* DeckImageView.swift in Sources */,
 				A54371AF24FE7DE9006E5F2A /* SetCardViewController.swift in Sources */,
 				A558BE91250BB440007B3405 /* BorderButton.swift in Sources */,
 			);
