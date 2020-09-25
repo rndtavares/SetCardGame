@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A5394BF424F93E1100B256ED /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5394BF324F93E1000B256ED /* Grid.swift */; };
+		A53AC1D0251CCD0700659C38 /* CardBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53AC1CF251CCD0700659C38 /* CardBehavior.swift */; };
 		A54371AD24FE76EE006E5F2A /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54371AC24FE76EE006E5F2A /* SetCardView.swift */; };
 		A54371AF24FE7DE9006E5F2A /* SetCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */; };
 		A547293324C9C3D500D2FC23 /* SetCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A547293224C9C3D500D2FC23 /* SetCardGame.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		A5394BF324F93E1000B256ED /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		A53AC1CF251CCD0700659C38 /* CardBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBehavior.swift; sourceTree = "<group>"; };
 		A54371AC24FE76EE006E5F2A /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardViewController.swift; sourceTree = "<group>"; };
 		A547293224C9C3D500D2FC23 /* SetCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardGame.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				A54371AE24FE7DE9006E5F2A /* SetCardViewController.swift */,
 				A558BE90250BB440007B3405 /* BorderButton.swift */,
 				A5569152251B7E790097B39C /* DeckImageView.swift */,
+				A53AC1CF251CCD0700659C38 /* CardBehavior.swift */,
 			);
 			path = V2;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				A5569153251B7E790097B39C /* DeckImageView.swift in Sources */,
 				A54371AF24FE7DE9006E5F2A /* SetCardViewController.swift in Sources */,
 				A558BE91250BB440007B3405 /* BorderButton.swift in Sources */,
+				A53AC1D0251CCD0700659C38 /* CardBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

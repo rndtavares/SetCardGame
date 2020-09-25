@@ -97,6 +97,7 @@ class SetCardView: UIView {
         static let pipHeightToFaceHeight: CGFloat = 0.25
         static let cornerRadiusToBoundsHeight: CGFloat = 0.06
         static let pinOffset: CGFloat = 0.03
+        static let backTextFontSizeToBoundsWidth: CGFloat = 1.4
     }
     
     private var cornerRadius: CGFloat {
@@ -116,6 +117,18 @@ class SetCardView: UIView {
                 cardBackImage.draw(in: bounds)
             }
         }
+    }
+    
+    private var backFontSize: CGFloat {
+        return bounds.width * SizeRatio.backTextFontSizeToBoundsWidth
+    }
+    
+    private func drawBack() {
+        UIColor.green.setFill()
+        let font = UIFont(name: "Party LET", size: backFontSize)!
+        let attr: [NSAttributedString.Key : Any] = [.font : font]
+        let text = NSAttributedString(string: "K", attributes: attr)
+        text.draw(at: CGPoint.zero)
     }
     
     private var maxFaceFrame: CGRect {
@@ -333,6 +346,90 @@ class SetCardView: UIView {
         label.frame.size = CGSize.zero
         label.sizeToFit()
         label.isHidden = true
+    }
+    
+    func copyCard() -> SetCardView {
+        let copy = SetCardView()
+        copy.symbolInt = symbolInt
+        copy.fillInt = fillInt
+        copy.colorInt = colorInt
+        copy.count = count
+        copy.isSelected = false
+        copy.isFaceUp = true
+        copy.bounds = bounds
+        copy.frame = frame
+        copy.alpha = 1
+        return copy
+    }
+    
+    func animateDeal(from deckCenter: CGPoint, delay: TimeInterval) {
+        let currentCenter = center
+        let currentBounds = bounds
+        
+        center = deckCenter
+        alpha = 1
+        bounds = CGRect(x: 0.0, y: 0.0, width: 0.6 * bounds.width, height: 0.6 * bounds.height)
+        isFaceUp = false
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 1,
+            delay: delay,
+            options: [],
+            animations: {
+                self.center = currentCenter
+                self.bounds = currentBounds
+            },
+            completion: {
+                position in UIView.transition(
+                    with: self,
+                    duration: 0.3,
+                    options: [.transitionFlipFromLeft],
+                    animations: {
+                        self.isFaceUp = true
+                })
+        })
+    }
+    
+    var addDiscardPile : (() -> Void)?
+    
+    func animatedFly(to discardPileCenter: CGPoint, delay: TimeInterval) {
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 1,
+            delay: delay,
+            options: [],
+            animations: {
+                self.center = discardPileCenter
+            },
+            completion: { position in
+                UIView.transition(
+                    with: self,
+                    duration: 0.75,
+                    options: [.transitionFlipFromLeft],
+                    animations: {
+                        self.isFaceUp = true
+                        self.transform = CGAffineTransform.identity.rotated(by: CGFloat.pi / 2.0)
+                        self.bounds = CGRect(x: 0.0, y: 0.0, width: 0.7 * self.bounds.width, height: 0.7 * self.bounds.height)
+                    },
+                    completion: {
+                        finished in
+                            self.addDiscardPile?()
+                })
+        })
+    }
+    
+    private func setup() {
+        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        isOpaque = false
+        alpha = 0
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
     }
 }
 
