@@ -353,7 +353,6 @@
                                         </variation>
                                         <connections>
                                             <action selector="new" destination="ocu-C9-xmB" eventType="touchUpInside" id="1fp-jQ-kVw"/>
-                                            <action selector="new:" destination="ocu-C9-xmB" eventType="touchUpInside" id="Bwg-mk-2KR"/>
                                         </connections>
                                     </button>
                                 </subviews>
